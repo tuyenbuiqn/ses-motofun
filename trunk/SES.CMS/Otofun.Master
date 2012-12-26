@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Otofun.master.cs" Inherits="SES.CMS.Otofun" %>
+
+<%@ Register Src="/Module/ucMainMenu.ascx" TagName="ucMainMenu" TagPrefix="uc1" %>
+<%@ Register Src="/Module/ucCateMenu.ascx" TagName="ucCateMenu" TagPrefix="uc2" %>
+<%@ Register Src="/Module/ucAllCategory.ascx" TagName="ucAllCate" TagPrefix="uc3" %>
+<%@ Register Src="/Module/ucFooter.ascx" TagName="ucFooter" TagPrefix="uc4" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="/css/mobilestyle.css" rel="stylesheet" type="text/css" />
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <!--Slide-->
+    <script type="text/javascript" src="/js/jquery.wt-rotator.min.js"></script>
+    <script type="text/javascript" src="/js/preview.js"></script>
+    <link rel="stylesheet" type="text/css" href="/preview.css" />
+    <link rel="stylesheet" type="text/css" href="/wt-rotator.css" />
+    <script type="text/javascript">
+        $(document).ready(
+       function () {
+           $(".cpslide").wtRotator({
+               width: 455,
+               height: 263,
+               display_thumbs: false,
+               display_playbutton: true,
+               display_numbers: false
+           });
+       });
+
+    </script>
+    <!--End Slide-->
+    <!--Carousel thong tin doanh nghiep-->
+    <script type="text/javascript" src="/carousel/jquery.carouFredSel-6.0.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#foo").carouFredSel({
+                circular: true,
+                items: { visible: 4 },
+                scroll: { duration: 2000, pauseOnHover: true },
+                next: "#slide-next",
+                prev: "#slide-prev"
+            });
+        });
+    </script>
+    <!--End Carousel thong tin doanh nghiep-->
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="MobileOptimized" content="100" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <div class="main-container">
+            <div class="header">
+                <a href="/Default.aspx" title="otofun.vn">
+                    <img alt="otofun.vn" class="header-img" src="/Media/banner-otofun.jpg" />
+                </a>
+            </div>
+            <uc1:ucMainMenu ID="ucMainMenu1" runat="server" />
+            <uc2:ucCateMenu ID="ucCateMenu2" runat="server" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <uc3:ucAllCate runat="server" ID="uc3ucAllCate"/>
+            <uc4:ucFooter runat="server" ID="uc4ucfooter" />
+        </div>
+    </div>
+    </form>
+</body>
+</html>
