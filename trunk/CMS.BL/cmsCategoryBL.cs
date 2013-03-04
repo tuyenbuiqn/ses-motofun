@@ -98,6 +98,16 @@ namespace SES.CMS.BL
 
             return objcmsCategoryDAL.SelectByType(type);
         }
+
+        public DataTable Category_GetByPK(int CategoryID)
+        {
+            return objcmsCategoryDAL.Category_GetByPK(CategoryID);
+        }
+
+        public DataTable GetByArticleID(int ArticleID)
+        {
+            return objcmsCategoryDAL.GetByArticleID(ArticleID);
+        }
     }
 
 }

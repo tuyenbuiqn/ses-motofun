@@ -18,7 +18,7 @@ namespace SES.CMS.DAL
     public class cmsArticleDAL : BaseDAL
     {
         #region Private Variables
-
+        DateTime minDate = new DateTime(1900,1,1);
         #endregion
 
         #region Public Constructors
@@ -83,6 +83,9 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@CreateDate", SqlDbType.DateTime);
+            if (objcmsArticleDO.CreateDate <= minDate)
+                Sqlparam.Value = minDate;
+            else 
             Sqlparam.Value = objcmsArticleDO.CreateDate;
             Sqlcomm.Parameters.Add(Sqlparam);
 
@@ -123,6 +126,9 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ThoiGianGui", SqlDbType.DateTime);
+            if (objcmsArticleDO.ThoiGianGui <= minDate)
+                Sqlparam.Value = minDate;
+            else 
             Sqlparam.Value = objcmsArticleDO.ThoiGianGui;
             Sqlcomm.Parameters.Add(Sqlparam);
 
@@ -131,6 +137,9 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ThoiGianGuiXuatBan", SqlDbType.DateTime);
+            if (objcmsArticleDO.ThoiGianGuiXuatBan <= minDate)
+                Sqlparam.Value = minDate;
+            else 
             Sqlparam.Value = objcmsArticleDO.ThoiGianGuiXuatBan;
             Sqlcomm.Parameters.Add(Sqlparam);
 
@@ -139,6 +148,9 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ThoiGianXuatBan", SqlDbType.DateTime);
+            if (objcmsArticleDO.ThoiGianXuatBan <= minDate)
+                Sqlparam.Value = minDate;
+            else 
             Sqlparam.Value = objcmsArticleDO.ThoiGianXuatBan;
             Sqlcomm.Parameters.Add(Sqlparam);
 
@@ -174,6 +186,30 @@ namespace SES.CMS.DAL
             Sqlparam.Value = objcmsArticleDO.TinLienQuan2;
             Sqlcomm.Parameters.Add(Sqlparam);
 
+            Sqlparam = new SqlParameter("@IsWaitingPublish", SqlDbType.Bit);
+            Sqlparam.Value = objcmsArticleDO.IsWaitingPublish;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Author", SqlDbType.NVarChar);
+            Sqlparam.Value = objcmsArticleDO.Author;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@DescHome", SqlDbType.NText);
+            Sqlparam.Value = objcmsArticleDO.DescHome;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ForumUserID", SqlDbType.Int);
+            Sqlparam.Value = objcmsArticleDO.ForumUserID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Note", SqlDbType.NText);
+            Sqlparam.Value = objcmsArticleDO.Note;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ArticleSP", SqlDbType.NText);
+            Sqlparam.Value = objcmsArticleDO.ArticleSP;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
             Sqlparam = new SqlParameter("@ID", SqlDbType.Int);
             Sqlparam.Direction = ParameterDirection.ReturnValue;
             Sqlcomm.Parameters.Add(Sqlparam);
@@ -202,6 +238,7 @@ namespace SES.CMS.DAL
             Sqlparam = new SqlParameter("@Title", SqlDbType.NVarChar);
             Sqlparam.Value = objcmsArticleDO.Title;
             Sqlcomm.Parameters.Add(Sqlparam);
+
 
             Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
             Sqlparam.Value = objcmsArticleDO.CategoryID;
@@ -240,7 +277,10 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@CreateDate", SqlDbType.DateTime);
-            Sqlparam.Value = objcmsArticleDO.CreateDate;
+            if (objcmsArticleDO.CreateDate <= minDate)
+                Sqlparam.Value = minDate;
+            else
+                Sqlparam.Value = objcmsArticleDO.CreateDate;
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@IsMostRead", SqlDbType.Bit);
@@ -280,7 +320,10 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ThoiGianGui", SqlDbType.DateTime);
-            Sqlparam.Value = objcmsArticleDO.ThoiGianGui;
+            if (objcmsArticleDO.ThoiGianGui <= minDate)
+                Sqlparam.Value = minDate;
+            else
+                Sqlparam.Value = objcmsArticleDO.ThoiGianGui;
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@BienTapVienID", SqlDbType.Int);
@@ -288,7 +331,10 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ThoiGianGuiXuatBan", SqlDbType.DateTime);
-            Sqlparam.Value = objcmsArticleDO.ThoiGianGuiXuatBan;
+            if (objcmsArticleDO.ThoiGianGuiXuatBan <= minDate)
+                Sqlparam.Value = minDate;
+            else
+                Sqlparam.Value = objcmsArticleDO.ThoiGianGuiXuatBan;
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ThuKyID", SqlDbType.Int);
@@ -296,7 +342,10 @@ namespace SES.CMS.DAL
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ThoiGianXuatBan", SqlDbType.DateTime);
-            Sqlparam.Value = objcmsArticleDO.ThoiGianXuatBan;
+            if (objcmsArticleDO.ThoiGianXuatBan <= minDate)
+                Sqlparam.Value = minDate;
+            else
+                Sqlparam.Value = objcmsArticleDO.ThoiGianXuatBan;
             Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@BTVEdit", SqlDbType.Int);
@@ -331,7 +380,29 @@ namespace SES.CMS.DAL
             Sqlparam.Value = objcmsArticleDO.TinLienQuan2;
             Sqlcomm.Parameters.Add(Sqlparam);
 
+            Sqlparam = new SqlParameter("@IsWaitingPublish", SqlDbType.Bit);
+            Sqlparam.Value = objcmsArticleDO.IsWaitingPublish;
+            Sqlcomm.Parameters.Add(Sqlparam);
 
+            Sqlparam = new SqlParameter("@Author", SqlDbType.NVarChar);
+            Sqlparam.Value = objcmsArticleDO.Author;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@DescHome", SqlDbType.NText);
+            Sqlparam.Value = objcmsArticleDO.DescHome;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ForumUserID", SqlDbType.Int);
+            Sqlparam.Value = objcmsArticleDO.ForumUserID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Note", SqlDbType.NText);
+            Sqlparam.Value = objcmsArticleDO.Note;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ArticleSP", SqlDbType.NText);
+            Sqlparam.Value = objcmsArticleDO.ArticleSP;
+            Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ErrorCode", SqlDbType.Int);
             Sqlparam.Direction = ParameterDirection.ReturnValue;
@@ -376,6 +447,8 @@ namespace SES.CMS.DAL
             int result = base.ExecuteNoneQuery(Sqlcomm);
             return result;
         }
+
+
 
         public cmsArticleDO Select(cmsArticleDO objcmsArticleDO)
         {
@@ -439,8 +512,45 @@ namespace SES.CMS.DAL
                     objcmsArticleDO.UserXetDuyet = Convert.ToInt32(dr["UserXetDuyet"]);
                 if (!Convert.IsDBNull(dr["IsHot"]))
                     objcmsArticleDO.IsHot = Convert.ToBoolean(dr["IsHot"]);
+                if (!Convert.IsDBNull(dr["ThoiGianGui"]))
+                    objcmsArticleDO.ThoiGianGui = Convert.ToDateTime(dr["ThoiGianGui"]);
+                if (!Convert.IsDBNull(dr["BienTapVienID"]))
+                    objcmsArticleDO.BienTapVienID = Convert.ToInt32(dr["BienTapVienID"]);
+                if (!Convert.IsDBNull(dr["ThoiGianGuiXuatBan"]))
+                    objcmsArticleDO.ThoiGianGuiXuatBan = Convert.ToDateTime(dr["ThoiGianGuiXuatBan"]);
+                if (!Convert.IsDBNull(dr["ThuKyID"]))
+                    objcmsArticleDO.ThuKyID = Convert.ToInt32(dr["ThuKyID"]);
+                if (!Convert.IsDBNull(dr["ThoiGianXuatBan"]))
+                    objcmsArticleDO.ThoiGianXuatBan = Convert.ToDateTime(dr["ThoiGianXuatBan"]);
+                if (!Convert.IsDBNull(dr["BTVEdit"]))
+                    objcmsArticleDO.BTVEdit = Convert.ToInt32(dr["BTVEdit"]);
+                if (!Convert.IsDBNull(dr["ThuKyEdit"]))
+                    objcmsArticleDO.ThuKyEdit = Convert.ToInt32(dr["ThuKyEdit"]);
+                if (!Convert.IsDBNull(dr["DangBienTap"]))
+                    objcmsArticleDO.DangBienTap = Convert.ToBoolean(dr["DangBienTap"]);
+                if (!Convert.IsDBNull(dr["SlideID"]))
+                    objcmsArticleDO.SlideID = Convert.ToInt32(dr["SlideID"]);
+                if (!Convert.IsDBNull(dr["TrangThai"]))
+                    objcmsArticleDO.TrangThai = Convert.ToInt16(dr["TrangThai"]);
+                if (!Convert.IsDBNull(dr["LuotView"]))
+                    objcmsArticleDO.LuotView = Convert.ToInt32(dr["LuotView"]);
+                if (!Convert.IsDBNull(dr["TinLienQuan1"]))
+                    objcmsArticleDO.TinLienQuan1 = Convert.ToString(dr["TinLienQuan1"]);
+                if (!Convert.IsDBNull(dr["TinLienQuan2"]))
+                    objcmsArticleDO.TinLienQuan2 = Convert.ToString(dr["TinLienQuan2"]);
+                if (!Convert.IsDBNull(dr["IsWaitingPublish"]))
+                    objcmsArticleDO.IsWaitingPublish = Convert.ToBoolean(dr["IsWaitingPublish"]);
+                if (!Convert.IsDBNull(dr["Author"]))
+                    objcmsArticleDO.Author = Convert.ToString(dr["Author"]);
+                if (!Convert.IsDBNull(dr["DescHome"]))
+                    objcmsArticleDO.DescHome = Convert.ToString(dr["DescHome"]);
+                if (!Convert.IsDBNull(dr["ForumUserID"]))
+                    objcmsArticleDO.ForumUserID = Convert.ToInt32(dr["ForumUserID"]);
+                if (!Convert.IsDBNull(dr["Note"]))
+                    objcmsArticleDO.Note = Convert.ToString(dr["Note"]);
 
-
+                if (!Convert.IsDBNull(dr["ArticleSP"]))
+                    objcmsArticleDO.ArticleSP = Convert.ToString(dr["ArticleSP"]);
             }
             return objcmsArticleDO;
         }
@@ -503,11 +613,50 @@ namespace SES.CMS.DAL
                         objcmsArticleDO.UserXetDuyet = Convert.ToInt32(dr["UserXetDuyet"]);
                     if (!Convert.IsDBNull(dr["IsHot"]))
                         objcmsArticleDO.IsHot = Convert.ToBoolean(dr["IsHot"]);
+                    if (!Convert.IsDBNull(dr["ThoiGianGui"]))
+                        objcmsArticleDO.ThoiGianGui = Convert.ToDateTime(dr["ThoiGianGui"]);
+                    if (!Convert.IsDBNull(dr["BienTapVienID"]))
+                        objcmsArticleDO.BienTapVienID = Convert.ToInt32(dr["BienTapVienID"]);
+                    if (!Convert.IsDBNull(dr["ThoiGianGuiXuatBan"]))
+                        objcmsArticleDO.ThoiGianGuiXuatBan = Convert.ToDateTime(dr["ThoiGianGuiXuatBan"]);
+                    if (!Convert.IsDBNull(dr["ThuKyID"]))
+                        objcmsArticleDO.ThuKyID = Convert.ToInt32(dr["ThuKyID"]);
+                    if (!Convert.IsDBNull(dr["ThoiGianXuatBan"]))
+                        objcmsArticleDO.ThoiGianXuatBan = Convert.ToDateTime(dr["ThoiGianXuatBan"]);
+                    if (!Convert.IsDBNull(dr["BTVEdit"]))
+                        objcmsArticleDO.BTVEdit = Convert.ToInt32(dr["BTVEdit"]);
+                    if (!Convert.IsDBNull(dr["ThuKyEdit"]))
+                        objcmsArticleDO.ThuKyEdit = Convert.ToInt32(dr["ThuKyEdit"]);
+                    if (!Convert.IsDBNull(dr["DangBienTap"]))
+                        objcmsArticleDO.DangBienTap = Convert.ToBoolean(dr["DangBienTap"]);
+                    if (!Convert.IsDBNull(dr["SlideID"]))
+                        objcmsArticleDO.SlideID = Convert.ToInt32(dr["SlideID"]);
+                    if (!Convert.IsDBNull(dr["TrangThai"]))
+                        objcmsArticleDO.TrangThai = Convert.ToInt16(dr["TrangThai"]);
+                    if (!Convert.IsDBNull(dr["LuotView"]))
+                        objcmsArticleDO.LuotView = Convert.ToInt32(dr["LuotView"]);
+                    if (!Convert.IsDBNull(dr["TinLienQuan1"]))
+                        objcmsArticleDO.TinLienQuan1 = Convert.ToString(dr["TinLienQuan1"]);
+                    if (!Convert.IsDBNull(dr["TinLienQuan2"]))
+                        objcmsArticleDO.TinLienQuan2 = Convert.ToString(dr["TinLienQuan2"]);
+                    if (!Convert.IsDBNull(dr["IsWaitingPublish"]))
+                        objcmsArticleDO.IsWaitingPublish = Convert.ToBoolean(dr["IsWaitingPublish"]);
+                    if (!Convert.IsDBNull(dr["Author"]))
+                        objcmsArticleDO.Author = Convert.ToString(dr["Author"]);
+                    if (!Convert.IsDBNull(dr["DescHome"]))
+                        objcmsArticleDO.DescHome = Convert.ToString(dr["DescHome"]);
+                    if (!Convert.IsDBNull(dr["ForumUserID"]))
+                        objcmsArticleDO.ForumUserID = Convert.ToInt32(dr["ForumUserID"]);
+                    if (!Convert.IsDBNull(dr["Note"]))
+                        objcmsArticleDO.Note = Convert.ToString(dr["Note"]);
+                    if (!Convert.IsDBNull(dr["ArticleSP"]))
+                        objcmsArticleDO.ArticleSP = Convert.ToString(dr["ArticleSP"]);
                     arrcmsArticleDO.Add(objcmsArticleDO);
                 }
             }
             return arrcmsArticleDO;
         }
+
 
         public DataTable SelectAll()
         {
@@ -541,6 +690,33 @@ namespace SES.CMS.DAL
             Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
             Sqlparam.Value = CategoryID;
             Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable SelectByCategoryIDMobile(int categoryID,int top)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetByCategoryID_LastestNews_Mobile";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
+            Sqlparam.Value = categoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@top", SqlDbType.Int);
+            Sqlparam.Value = top;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
 
             DataSet ds = base.GetDataSet(Sqlcomm);
             DataTable dt = null;
@@ -662,6 +838,31 @@ namespace SES.CMS.DAL
             }
             return dt;
         }
+        public DataTable SelectBySameCategory(int top,int categoryID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetBySameCategory";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@top", SqlDbType.Int);
+            Sqlparam.Value = top;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@categoryID", SqlDbType.Int);
+            Sqlparam.Value = categoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
         public DataTable LastestNews()
         {
             SqlCommand Sqlcomm = new SqlCommand();
@@ -699,6 +900,27 @@ namespace SES.CMS.DAL
             SqlCommand Sqlcomm = new SqlCommand();
             Sqlcomm.CommandType = CommandType.StoredProcedure;
             Sqlcomm.CommandText = "spcmsArticle_GetByMostRead";
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable MostReadOfCategory(int categoryID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetByMostReadOfCategory";
+
+            SqlParameter Sqlparam;
+            Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
+            Sqlparam.Value = categoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
 
             DataSet ds = base.GetDataSet(Sqlcomm);
             DataTable dt = null;
@@ -991,6 +1213,534 @@ namespace SES.CMS.DAL
             Sqlparam.Value = CategoryID;
             Sqlcomm.Parameters.Add(Sqlparam);
 
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable SelectTopHomeNews(int CategoryID,int top)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetHomeNews_Top";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
+            Sqlparam.Value = CategoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Top", SqlDbType.Int);
+            Sqlparam.Value = top;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable SelectTop20NewArticles(DateTime today)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_Top20NewArticles";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@ThoiGianXuatBan", SqlDbType.DateTime);
+            Sqlparam.Value = today;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable SelectTop20NewArticlesAndCate(DateTime today,int categoryID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_Top20NewArticles_Cate";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@ThoiGianXuatBan", SqlDbType.DateTime);
+            Sqlparam.Value = today;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
+            Sqlparam.Value = categoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable Article_Search(string lstCategoryID, DateTime ArticleSearchDateStart, DateTime ArticleSearchDateEnd, string Keyw)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_Search";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@lstCategoryID", SqlDbType.NVarChar);
+            Sqlparam.Value = lstCategoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@NgayBatDau", SqlDbType.DateTime);
+            Sqlparam.Value = ArticleSearchDateStart;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@NgayKetThuc", SqlDbType.DateTime);
+            Sqlparam.Value = ArticleSearchDateEnd;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Keyw", SqlDbType.NVarChar);
+            if (!string.IsNullOrEmpty(Keyw))
+                Sqlparam.Value = Keyw;
+            else Sqlparam.Value = "******";
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable Article_SearchAdvanced(string lstCategoryID, DateTime ArticleSearchDateStart, DateTime ArticleSearchDateEnd, string Keyw, string ListStatus, string PvCreate, string BtvEdit, string TkApproved)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_SearchAdvanced";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@lstCategoryID", SqlDbType.NVarChar);
+            Sqlparam.Value = lstCategoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@NgayBatDau", SqlDbType.DateTime);
+            Sqlparam.Value = ArticleSearchDateStart;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@NgayKetThuc", SqlDbType.DateTime);
+            Sqlparam.Value = ArticleSearchDateEnd;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Keyw", SqlDbType.NVarChar);
+            Sqlparam.Value = Keyw;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ListStatus", SqlDbType.NVarChar);
+            Sqlparam.Value = ListStatus;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@PvCreate", SqlDbType.NVarChar);
+            Sqlparam.Value = PvCreate;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@BtvEdit", SqlDbType.NVarChar);
+            Sqlparam.Value = BtvEdit;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@TkApproved", SqlDbType.NVarChar);
+            Sqlparam.Value = TkApproved;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable GetMultiID(string StrArticleID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetMultiID";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@StrArticleID", SqlDbType.NVarChar);
+            if (!string.IsNullOrEmpty(StrArticleID))
+                Sqlparam.Value = StrArticleID;
+            else Sqlparam.Value = "0";
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable SelectByTrangThaiAndUserCreate(int trangThai, int userCreate, int cate)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetByUserAndTrangThai";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@TrangThai", SqlDbType.Int);
+            Sqlparam.Value = trangThai;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@UserCreate", SqlDbType.Int);
+            Sqlparam.Value = userCreate;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Cate", SqlDbType.Int);
+            Sqlparam.Value = cate;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable SelectByTrangThaiAndUserCreateBTV(int trangThai, int userCreate, int cate,int btvID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetByUserAndTrangThai_BTV";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@TrangThai", SqlDbType.Int);
+            Sqlparam.Value = trangThai;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@UserCreate", SqlDbType.Int);
+            Sqlparam.Value = userCreate;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@Cate", SqlDbType.Int);
+            Sqlparam.Value = cate;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@BTVID", SqlDbType.Int);
+            Sqlparam.Value = btvID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public void ChuyenTrangThai_ThuKy(int type,string articleIDList, int trangThai, int thuKyID,int thuKyEdit, DateTime thoiGianXuatBan,bool isPublish)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_ChuyenTrangThai_TK";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@Type", SqlDbType.Int);
+            Sqlparam.Value = type;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ArticleIDList", SqlDbType.NVarChar);
+            Sqlparam.Value = articleIDList;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@TrangThai", SqlDbType.Int);
+            Sqlparam.Value = trangThai;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ThuKyID", SqlDbType.Int);
+            Sqlparam.Value = thuKyID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ThuKyEdit", SqlDbType.Int);
+            Sqlparam.Value = thuKyEdit;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ThoiGianXuatBan", SqlDbType.DateTime);
+            Sqlparam.Value = thoiGianXuatBan;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@IsPublish", SqlDbType.Bit);
+            Sqlparam.Value = isPublish;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            base.ExecuteNoneQuery(Sqlcomm);
+        }
+        public void ChuyenTrangThai_BienTapVien(string articleIDList, int trangThai, int bienTapVienID, DateTime thoiGianGuiXuatBan)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_ChuyenTrangThai_BTV";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@ArticleIDList", SqlDbType.NVarChar);
+            Sqlparam.Value = articleIDList;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@TrangThai", SqlDbType.Int);
+            Sqlparam.Value = trangThai;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@BienTapVienID", SqlDbType.Int);
+            Sqlparam.Value = bienTapVienID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ThoiGianGuiXuatBan", SqlDbType.DateTime);
+            Sqlparam.Value = thoiGianGuiXuatBan;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            base.ExecuteNoneQuery(Sqlcomm);
+        }
+
+        public void ChuyenTrangThai_PhongVien(string articleIDList, int trangThai, DateTime thoiGianGuiBienTap)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_ChuyenTrangThai_PTV";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@ArticleIDList", SqlDbType.NVarChar);
+            Sqlparam.Value = articleIDList;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@TrangThai", SqlDbType.Int);
+            Sqlparam.Value = trangThai;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@thoiGianGui", SqlDbType.DateTime);
+            Sqlparam.Value = thoiGianGuiBienTap;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            base.ExecuteNoneQuery(Sqlcomm);
+        }
+
+        public void DangKyChiuTrachNhiemBaiViet(int type,string articleIDList, int userID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_ChiuTrachNhiem";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@Type", SqlDbType.Int);
+            Sqlparam.Value = type;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@ArticleIDList", SqlDbType.NVarChar);
+            Sqlparam.Value = articleIDList;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+
+            Sqlparam = new SqlParameter("@UserID", SqlDbType.Int);
+            Sqlparam.Value = userID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            base.ExecuteNoneQuery(Sqlcomm);
+        }
+
+
+        public void AutoPublish()
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_AutoPublish";
+            base.ExecuteNoneQuery(Sqlcomm);
+        }
+
+        
+
+        public void MultiDelete(string articleIDList)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_DeleteMulti";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@ArticleIDList", SqlDbType.NVarChar);
+            Sqlparam.Value = articleIDList;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            base.ExecuteNoneQuery(Sqlcomm);
+        }
+
+        public int SelectSumCat(int categoryID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spArticle_GetCountCat";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
+            Sqlparam.Value = categoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+           
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+                
+            }
+            int id = 0;
+            if(dt.Rows.Count>0)
+                try
+                {
+                    id = Convert.ToInt32(dt.Rows[0]["RCount"]);
+
+                }
+                catch { id = 0; }
+            return id;
+        }
+        public int SelectSumTag(string tag)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetByTag";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@tag", SqlDbType.NVarChar);
+            Sqlparam.Value = tag;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            int id = 0;
+            if (dt.Rows.Count > 0)
+                try
+                {
+                    id = dt.Rows.Count;
+
+                }
+                catch { id = 0; }
+            return id;
+        }
+        public DataTable SelectPaging(int categoryID, int PageID, int PageSize)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+          //  Sqlcomm.CommandText = "spr_procedure_article_paged";
+            Sqlcomm.CommandText = "spr_procedure_article_paged_x";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
+            Sqlparam.Value = categoryID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@startrow", SqlDbType.Int);
+            Sqlparam.Value = PageID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@pagesize", SqlDbType.Int);
+            Sqlparam.Value = PageSize;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+        public DataTable SelectPagingTagOrSearch(string tagOrSearchKey, int PageID, int PageSize)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spr_procedure_article_tag_paged";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@startrow", SqlDbType.Int);
+            Sqlparam.Value = PageID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@pagesize", SqlDbType.Int);
+            Sqlparam.Value = PageSize;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@tag", SqlDbType.NVarChar);
+            Sqlparam.Value = tagOrSearchKey;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+
+        public DataTable selectURLArt(int p)
+        {
+            
+
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticle_GetFullURL";
+            SqlParameter Sqlparam;
+
+            Sqlparam = new SqlParameter("@ArticleID", SqlDbType.Int);
+            Sqlparam.Value = p;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+           
             DataSet ds = base.GetDataSet(Sqlcomm);
             DataTable dt = null;
 

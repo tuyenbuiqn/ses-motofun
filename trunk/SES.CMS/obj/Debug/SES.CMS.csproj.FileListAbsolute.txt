@@ -42,3 +42,15 @@ D:\Works\Ses-vn\Website\Projects\SES-motofun\SES.CMS\bin\CMS.BL.pdb
 D:\Works\Ses-vn\Website\Projects\SES-motofun\SES.CMS\bin\SES.CMS.DO.pdb
 D:\Works\Ses-vn\Website\Projects\SES-motofun\SES.CMS\bin\CMS.DAL.pdb
 D:\Works\Ses-vn\Website\Projects\SES-motofun\SES.CMS\obj\Debug\SES.CMS.dll
+D:\project\ses-motofun\SES.CMS\bin\SES.CMS.dll
+D:\project\ses-motofun\SES.CMS\bin\SES.CMS.pdb
+D:\project\ses-motofun\SES.CMS\bin\CMS.BL.dll
+D:\project\ses-motofun\SES.CMS\bin\SES.CMS.DO.dll
+D:\project\ses-motofun\SES.CMS\bin\CMS.DAL.dll
+D:\project\ses-motofun\SES.CMS\bin\CMS.BL.pdb
+D:\project\ses-motofun\SES.CMS\bin\SES.CMS.DO.pdb
+D:\project\ses-motofun\SES.CMS\bin\CMS.DAL.pdb
+D:\project\ses-motofun\SES.CMS\obj\Debug\ResolveAssemblyReference.cache
+D:\project\ses-motofun\SES.CMS\obj\Debug\SES.CMS.dll.licenses
+D:\project\ses-motofun\SES.CMS\obj\Debug\SES.CMS.dll
+D:\project\ses-motofun\SES.CMS\obj\Debug\SES.CMS.pdb

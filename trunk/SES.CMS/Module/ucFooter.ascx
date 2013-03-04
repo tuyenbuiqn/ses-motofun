@@ -7,7 +7,8 @@
     <a href="http://otofun.ses.vn" title="Liên hệ">Giao diện chuẩn</a> 
 </div>
         <p class="banquyen">
-            Bản quyền © 2006 - 2012 OTOFUN®</p>
+            Bản quyền © 2006 - 2012 OTOFUN®, bảo lưu mọi quyền.</p>
+            <p class="banquyen" Ghi rõ nguồn "Otofun News" khi sử dụng thông tin từ website này.</p>
             <a href="#wrapper" class="uptop">
     Về đầu trang
 </a>

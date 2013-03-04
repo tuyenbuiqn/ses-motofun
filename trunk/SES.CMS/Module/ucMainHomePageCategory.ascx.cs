@@ -16,7 +16,8 @@ namespace SES.CMS.Module
         private Cache cache = HttpContext.Current.Cache;
         protected void Page_Load(object sender, EventArgs e)
         {
-            rptCategoryParentDataSource();
+            if (!IsPostBack)
+                rptCategoryParentDataSource();
         }
         protected void rptCategoryParentDataSource()
         {
@@ -25,7 +26,7 @@ namespace SES.CMS.Module
             if (cache["DataTables"] == null)
             {
                 DataTable dtCache = new DataView(new cmsCategoryBL().SelectAll(), " IsHomPage = 1 and IsPublish = 1 and ParentID = 0", " OrderID ASC", DataViewRowState.CurrentRows).ToTable();
-                cache.Insert("DataTables", dtCache, null,DateTime.Now.AddSeconds(150), TimeSpan.Zero);
+                cache.Insert("DataTables", dtCache, null, DateTime.Now.AddSeconds(150), TimeSpan.Zero);
             }
             rptCategoryParent.DataSource = (DataTable)cache["DataTables"];
             rptCategoryParent.DataBind();
@@ -46,35 +47,38 @@ namespace SES.CMS.Module
 
                 int categoryID = int.Parse(drv["CategoryID"].ToString());
 
-             
-
                 //cache top hightlight
-                string keyCacheTopHightLight = "TopHightLight=" + categoryID;
+                string keyCacheTopHightLight = "TopHightLightM=" + categoryID;
                 if (cache[keyCacheTopHightLight] == null)
                 {
-                    DataTable dtTopHighLight = artBL.SelectHomeNews(categoryID);
+                    DataTable dtTopHighLight = artBL.SelectByCategoryIDMobile(categoryID,1);
+                        //artBL.SelectHomeNews(categoryID);
                     cache.Insert(keyCacheTopHightLight, dtTopHighLight, null, DateTime.Now.AddSeconds(150), TimeSpan.Zero);
                 }
                 DataTable dtCacheTopHight = (DataTable)cache[keyCacheTopHightLight];
-                int topArtID = 0;
-                if (dtCacheTopHight.Rows.Count > 0)
-                    topArtID = int.Parse(dtCacheTopHight.Rows[0]["ArticleID"].ToString());
                 Repeater rptTopHighLight = (Repeater)item.FindControl("rptTopHighLight");
-                rptTopHighLight.DataSource = new DataView(dtCacheTopHight, "ArticleID=" + topArtID.ToString(), "", DataViewRowState.CurrentRows).ToTable();
+                rptTopHighLight.DataSource = dtCacheTopHight;
                 rptTopHighLight.DataBind();
+                //DataTable dtCacheTopHight = (DataTable)cache[keyCacheTopHightLight];
+                //int topArtID = 0;
+                //if (dtCacheTopHight.Rows.Count > 0)
+                //    topArtID = int.Parse(dtCacheTopHight.Rows[0]["ArticleID"].ToString());
+                //Repeater rptTopHighLight = (Repeater)item.FindControl("rptTopHighLight");
+                //rptTopHighLight.DataSource = new DataView(dtCacheTopHight, "ArticleID=" + topArtID.ToString(), "", DataViewRowState.CurrentRows).ToTable();
+                //rptTopHighLight.DataBind();
 
-                string keyCacheOther = "Other=" + categoryID;
-                if (cache[keyCacheOther] == null)
-                {
-                    DataTable dtTopOtherHighLight = new DataView(dtCacheTopHight, "ArticleID <> " + topArtID.ToString(), "", DataViewRowState.CurrentRows).ToTable();
-                    cache.Insert(keyCacheOther, dtTopOtherHighLight, null, DateTime.Now.AddSeconds(150), TimeSpan.Zero);
-                }
-                Repeater rptTopOtherHighLight = (Repeater)item.FindControl("rptTopOtherHighLight");
-                rptTopOtherHighLight.DataSource = (DataTable)cache[keyCacheOther];
-                rptTopOtherHighLight.DataBind();
+                //string keyCacheOther = "Other=" + categoryID;
+                //if (cache[keyCacheOther] == null)
+                //{
+                //    DataTable dtTopOtherHighLight = new DataView(dtCacheTopHight, "ArticleID <> " + topArtID.ToString(), "", DataViewRowState.CurrentRows).ToTable();
+                //    cache.Insert(keyCacheOther, dtTopOtherHighLight, null, DateTime.Now.AddSeconds(150), TimeSpan.Zero);
+                //}
+                //Repeater rptTopOtherHighLight = (Repeater)item.FindControl("rptTopOtherHighLight");
+                //rptTopOtherHighLight.DataSource = (DataTable)cache[keyCacheOther];
+                //rptTopOtherHighLight.DataBind();
             }
         }
-      
+
         public string WordCut(string text)
         {
             return Ultility.WordCut(text, 250, new char[] { ' ', '.', ',', ';' }) + "...";

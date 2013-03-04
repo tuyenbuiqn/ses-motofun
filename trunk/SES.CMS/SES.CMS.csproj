@@ -76,9 +76,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -339,6 +339,9 @@
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="Contact.aspx" />
+    <Content Include="css\jquery.mobile-1.0rc2.css" />
+    <Content Include="css\jquery.mobile-1.0rc2.min.css" />
+    <Content Include="css\main.css" />
     <Content Include="css\mobilestyle.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style2.css" />
@@ -376,6 +379,7 @@
     <Content Include="images\Anh-Tin.jpg" />
     <Content Include="images\background.jpg" />
     <Content Include="images\bg.png" />
+    <Content Include="images\bgx.png" />
     <Content Include="images\bigliststyle.jpg" />
     <Content Include="images\bike.jpg" />
     <Content Include="images\blog-icon.png" />
@@ -393,6 +397,7 @@
     <Content Include="images\line.jpg" />
     <Content Include="images\liststyle.jpg" />
     <Content Include="images\marker.png" />
+    <Content Include="images\menu-bg.png" />
     <Content Include="images\mid-quangcao.jpg" />
     <Content Include="images\newnew.gif" />
     <Content Include="images\P.jpg" />
@@ -410,14 +415,17 @@
     <Content Include="images\tag.png" />
     <Content Include="images\thongtindoanhnghiep.jpg" />
     <Content Include="images\TimKiem-button.jpg" />
+    <Content Include="js\app.js" />
     <Content Include="js\jquery-1.4.4.min.js" />
     <Content Include="js\jquery-ui-1.8.2.custom.min.js" />
+    <Content Include="js\jquery.mobile-1.0rc2.min.js" />
     <Content Include="js\jquery.reveal.js" />
     <Content Include="js\jquery.wt-rotator.min.js" />
     <Content Include="js\jquery1.4.2.js" />
     <Content Include="js\login.js" />
     <Content Include="js\popup.js" />
     <Content Include="js\preview.js" />
+    <Content Include="js\tabs.js" />
     <Content Include="Media\Anh-Tin.jpg" />
     <Content Include="Media\banner-otofun.jpg" />
     <Content Include="Media\bike.jpg" />
@@ -465,7 +473,9 @@
     <Content Include="preview.css" />
     <Content Include="tag.aspx" />
     <Content Include="Video.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

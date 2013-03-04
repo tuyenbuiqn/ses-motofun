@@ -9,60 +9,59 @@
 <head runat="server">
     <link href="/css/mobilestyle.css" rel="stylesheet" type="text/css" />
     <title></title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <!--Slide-->
-    <script type="text/javascript" src="/js/jquery.wt-rotator.min.js"></script>
-    <script type="text/javascript" src="/js/preview.js"></script>
-    <link rel="stylesheet" type="text/css" href="/preview.css" />
-    <link rel="stylesheet" type="text/css" href="/wt-rotator.css" />
-    <script type="text/javascript">
-        $(document).ready(
-       function () {
-           $(".cpslide").wtRotator({
-               width: 455,
-               height: 263,
-               display_thumbs: false,
-               display_playbutton: true,
-               display_numbers: false
-           });
-       });
-
-    </script>
-    <!--End Slide-->
-    <!--Carousel thong tin doanh nghiep-->
-    <script type="text/javascript" src="/carousel/jquery.carouFredSel-6.0.4.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#foo").carouFredSel({
-                circular: true,
-                items: { visible: 4 },
-                scroll: { duration: 2000, pauseOnHover: true },
-                next: "#slide-next",
-                prev: "#slide-prev"
-            });
-        });
-    </script>
-    <!--End Carousel thong tin doanh nghiep-->
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <meta name="MobileOptimized" content="100" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="stylesheet" href="/css/jquery.mobile-1.0rc2.css" />
+    <link rel="stylesheet" href="/css/main.css?v=31" />
+    <script type="text/javascript" src="/js/jquery.mobile-1.0rc2.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="wrapper">
-        <div class="main-container">
-            <div class="header">
-                <a href="/Default.aspx" title="otofun.vn">
-                    <img alt="otofun.vn" class="header-img" src="/Media/banner-otofun.jpg" />
-                </a>
+    <div id="menu">
+        <ul>
+         <li><a target="_blank" href="mof.ses.vn"
+                title="Trang chủ" class="contentLink">Trang chủ</a> </li>
+            <asp:Repeater runat="server" ID="rptMainCate">
+                <ItemTemplate>
+                    <li><a href='/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("CategoryID")%>.ofn'
+                        class="contentLink" title='<%#Eval("Title") %>'>
+                        <%#Eval("Title") %>
+                    </a></li>
+                </ItemTemplate>
+            </asp:Repeater>
+            <li><a target="_blank" href="http://www.otofun.net/forums/12-thong-tin-thi-truong-rao-vat"
+                title="Rao vặt" class="contentLink">Rao vặt</a> </li>
+            <li><a target="_blank" href="http://www.otofun.net/forum.php" title="Diễn đàn otofun.net"
+                class="contentLink">Diễn đàn</a> </li>
+                <li><a target="_blank" href="http://www.news.otofun.net" title="Giao diện chuẩn"
+                class="contentLink">Giao diện chuẩn</a> </li>
+        </ul>
+    </div>
+    <div data-role="page" class="pages" id="home">
+        <div data-role="header">
+            <a href="#" class="showMenu"></a>
+        </div>
+        <!-- /header -->
+        <div id="wrapper">
+            <div class="main-container">
+                <div class="header">
+                    <a href="/Default.aspx" title="otofun.vn">
+                        <img alt="otofun.vn" class="header-img" src="/Media/banner-otofun.jpg" />
+                    </a>
+                </div>
+               <%-- <uc1:ucMainMenu ID="ucMainMenu1" runat="server" />--%>
+                <uc2:ucCateMenu ID="ucCateMenu2" runat="server" />
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+               <%-- <uc3:ucAllCate runat="server" ID="uc3ucAllCate" />--%>
+                <uc4:ucFooter runat="server" ID="uc4ucfooter" />
             </div>
-            <uc1:ucMainMenu ID="ucMainMenu1" runat="server" />
-            <uc2:ucCateMenu ID="ucCateMenu2" runat="server" />
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-            <uc3:ucAllCate runat="server" ID="uc3ucAllCate"/>
-            <uc4:ucFooter runat="server" ID="uc4ucfooter" />
         </div>
     </div>
     </form>

@@ -3,11 +3,11 @@
 <asp:Repeater runat="server" ID="rptCategoryParent" OnItemDataBound="rptCategoryParent_ItemDataBound">
     <ItemTemplate>
         <div class="m-home-page">
-            <h2 class="m-home-page-title">
-                <a href='/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("CategoryID")%>.aspx'
-                    class="title_block_tin" title='<%#Eval("Title") %>'><span class="pLinkObj">
-                        <%#Eval("Title") %></span></a> <span class="arrow">»</span></a>
-            </h2>
+            <h3 class="hmp-cate-maintitle">
+                <span><a href='/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("CategoryID")%>.aspx'
+                    class="title_block_tin" title='<%#Eval("Title") %>'>
+                        <%#Eval("Title") %></a> </span>
+            </h3>
             <div class="m-highlight-box">
                 <asp:Repeater runat="server" ID="rptTopHighLight">
                     <ItemTemplate>
@@ -24,8 +24,8 @@
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
-            <ul class="m-otherhighlight-box">
-                <asp:Repeater runat="server" ID="rptTopOtherHighLight">
+            <ul class="m-otherhighlight-box" style="display:none;">
+                <asp:Repeater runat="server" ID="rptTopOtherHighLight" Visible="false">
                     <ItemTemplate>
                         <li>
                             <h3 class="h3Title">
