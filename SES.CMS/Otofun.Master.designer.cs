@@ -31,13 +31,13 @@ namespace SES.CMS {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ucMainMenu1 control.
+        /// rptMainCate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SES.CMS.Module.ucMainMenu ucMainMenu1;
+        protected global::System.Web.UI.WebControls.Repeater rptMainCate;
         
         /// <summary>
         /// ucCateMenu2 control.
@@ -56,15 +56,6 @@ namespace SES.CMS {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-        
-        /// <summary>
-        /// uc3ucAllCate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::SES.CMS.Module.ucAllCategory uc3ucAllCate;
         
         /// <summary>
         /// uc4ucfooter control.

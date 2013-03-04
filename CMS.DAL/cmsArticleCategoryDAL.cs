@@ -75,9 +75,6 @@ namespace SES.CMS.DAL
             Sqlcomm.CommandText = "spcmsArticleCategory_UpdateByPK";
             SqlParameter Sqlparam;
 
-            Sqlparam = new SqlParameter("@ArticleCategoryID", SqlDbType.Int);
-            Sqlparam.Value = objcmsArticleCategoryDO.ArticleCategoryID;
-            Sqlcomm.Parameters.Add(Sqlparam);
 
             Sqlparam = new SqlParameter("@ArticleID", SqlDbType.Int);
             Sqlparam.Value = objcmsArticleCategoryDO.ArticleID;
@@ -105,17 +102,18 @@ namespace SES.CMS.DAL
 
         }
 
-        public int Delete(cmsArticleCategoryDO objcmsArticleCategoryDO)
+       
+        public int DeleteByArticleID(int articleID)
         {
 
             SqlCommand Sqlcomm = new SqlCommand();
             Sqlcomm.CommandType = CommandType.StoredProcedure;
-            Sqlcomm.CommandText = "spcmsArticleCategory_DeleteByPK";
+            Sqlcomm.CommandText = "spcmsArticleCategory_DeleteByArticleID";
             SqlParameter Sqlparam;
 
 
-            Sqlparam = new SqlParameter("@ArticleCategoryID", SqlDbType.Int);
-            Sqlparam.Value = objcmsArticleCategoryDO.ArticleCategoryID;
+            Sqlparam = new SqlParameter("@ArticleID", SqlDbType.Int);
+            Sqlparam.Value = articleID;
             Sqlcomm.Parameters.Add(Sqlparam);
 
 
@@ -144,8 +142,12 @@ namespace SES.CMS.DAL
             SqlParameter Sqlparam;
 
 
-            Sqlparam = new SqlParameter("@ArticleCategoryID", SqlDbType.Int);
-            Sqlparam.Value = objcmsArticleCategoryDO.ArticleCategoryID;
+            Sqlparam = new SqlParameter("@ArticleID", SqlDbType.Int);
+            Sqlparam.Value = objcmsArticleCategoryDO.ArticleID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            Sqlparam = new SqlParameter("@CategoryID", SqlDbType.Int);
+            Sqlparam.Value = objcmsArticleCategoryDO.CategoryID;
             Sqlcomm.Parameters.Add(Sqlparam);
 
 
@@ -155,8 +157,7 @@ namespace SES.CMS.DAL
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 dr = ds.Tables[0].Rows[0];
-                if (!Convert.IsDBNull(dr["ArticleCategoryID"]))
-                    objcmsArticleCategoryDO.ArticleCategoryID = Convert.ToInt32(dr["ArticleCategoryID"]);
+                
                 if (!Convert.IsDBNull(dr["ArticleID"]))
                     objcmsArticleCategoryDO.ArticleID = Convert.ToInt32(dr["ArticleID"]);
                 if (!Convert.IsDBNull(dr["CategoryID"]))
@@ -184,8 +185,7 @@ namespace SES.CMS.DAL
                 foreach (DataRow dr in dt.Rows)
                 {
                     cmsArticleCategoryDO objcmsArticleCategoryDO = new cmsArticleCategoryDO();
-                    if (!Convert.IsDBNull(dr["ArticleCategoryID"]))
-                        objcmsArticleCategoryDO.ArticleCategoryID = Convert.ToInt32(dr["ArticleCategoryID"]);
+                   
                     if (!Convert.IsDBNull(dr["ArticleID"]))
                         objcmsArticleCategoryDO.ArticleID = Convert.ToInt32(dr["ArticleID"]);
                     if (!Convert.IsDBNull(dr["CategoryID"]))
@@ -216,9 +216,58 @@ namespace SES.CMS.DAL
             return dt;
         }
 
+      
 
         #endregion
 
+
+
+
+        public DataTable SelectByArticleID(int articleID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticleCategory_GetByArticle";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@ArticleID", SqlDbType.Int);
+            Sqlparam.Value = articleID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
+
+        public DataTable SelectDistinctCategoryByArticleID(int articleID)
+        {
+            SqlCommand Sqlcomm = new SqlCommand();
+            Sqlcomm.CommandType = CommandType.StoredProcedure;
+            Sqlcomm.CommandText = "spcmsArticleCategory_GetDistinctCategoryByArticle";
+            SqlParameter Sqlparam;
+
+
+            Sqlparam = new SqlParameter("@ArticleID", SqlDbType.Int);
+            Sqlparam.Value = articleID;
+            Sqlcomm.Parameters.Add(Sqlparam);
+
+            DataSet ds = base.GetDataSet(Sqlcomm);
+            DataTable dt = null;
+
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = ds.Tables[0];
+
+            }
+            return dt;
+        }
     }
 
 }

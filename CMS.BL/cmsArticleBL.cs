@@ -7,9 +7,11 @@ using System;
 using System.Data;
 using System.Configuration;
 using System.Collections;
-
+using System.Linq;
 using SES.CMS.DAL;
 using SES.CMS.DO;
+using System.Collections.Generic;
+using System.Reflection;
 /// <summary>
 /// Summary description for cmsArticleBL
 /// </summary>
@@ -86,6 +88,10 @@ namespace SES.CMS.BL
         {
             return objcmsArticleDAL.SelectByCategoryID2(categoryID);
         }
+        public DataTable SelectBySameCategory(int top, int categoryID)
+        {
+            return objcmsArticleDAL.SelectBySameCategory(top, categoryID);
+        }
         public DataTable SelectByCatNum(int CategoryID, int Recordnumber)
         {
             return objcmsArticleDAL.SelectByCatNum(CategoryID, Recordnumber);
@@ -102,6 +108,10 @@ namespace SES.CMS.BL
         public DataTable MostRead()
         {
             return objcmsArticleDAL.MostRead();
+        }
+        public DataTable MostReadOfCategory(int categoryID)
+        {
+            return objcmsArticleDAL.MostReadOfCategory(categoryID);
         }
         public DataTable SelectToMainHomepageCate(int top, int categoryID, bool type)
         {
@@ -153,6 +163,10 @@ namespace SES.CMS.BL
         {
             return objcmsArticleDAL.SelectHomeNews(CategoryID);
         }
+        public DataTable SelectTopHomeNews(int CategoryID, int top)
+        {
+            return objcmsArticleDAL.SelectTopHomeNews(CategoryID, top);
+        }
         public DataTable GetTinLienQuan1(int articleID)
         {
             return objcmsArticleDAL.GetTinLienQuan1(articleID);
@@ -161,6 +175,151 @@ namespace SES.CMS.BL
         public DataTable GetTinLienQuan2(int articleID)
         {
             return objcmsArticleDAL.GetTinLienQuan2(articleID);
+        }
+        public DataTable SelectTop20NewArticles(DateTime today)
+        {
+            return objcmsArticleDAL.SelectTop20NewArticles(today);
+        }
+        public DataTable SelectTop20NewArticlesAndCate(DateTime today, int categoryID)
+        {
+            return objcmsArticleDAL.SelectTop20NewArticlesAndCate(today, categoryID);
+        }
+        public DataTable Article_Search(string lstCategoryID, DateTime ArticleSearchDateStart, DateTime ArticleSearchDateEnd, string Keyw)
+        {
+            return objcmsArticleDAL.Article_Search(lstCategoryID, ArticleSearchDateStart, ArticleSearchDateEnd, Keyw);
+        }
+
+        public DataTable Article_SearchAdvanced(string lstCategoryID, DateTime ArticleSearchDateStart, DateTime ArticleSearchDateEnd, string Keyw, string ListStatus, string PvCreate, string BtvEdit, string TkApproved)
+        {
+            return objcmsArticleDAL.Article_SearchAdvanced(lstCategoryID, ArticleSearchDateStart, ArticleSearchDateEnd, Keyw, ListStatus, PvCreate, BtvEdit, TkApproved);
+        }
+
+        public DataTable GetMultiID(string StrArticleID)
+        {
+            return objcmsArticleDAL.GetMultiID(StrArticleID);
+        }
+
+        public List<cmsArticleDO> GetListMultiID(string StrArticleID)
+        {
+            return ConvertTo<cmsArticleDO>(GetMultiID(StrArticleID));
+        }
+
+        public List<T> ConvertTo<T>(DataTable datatable) where T : new()
+        {
+            List<T> Temp = new List<T>();
+            try
+            {
+                List<string> columnsNames = new List<string>();
+                foreach (DataColumn DataColumn in datatable.Columns)
+                    columnsNames.Add(DataColumn.ColumnName);
+                Temp = datatable.AsEnumerable().ToList().ConvertAll<T>(row => getObject<T>(row, columnsNames));
+                return Temp;
+            }
+            catch
+            {
+                return Temp;
+            }
+
+        }
+        public T getObject<T>(DataRow row, List<string> columnsName) where T : new()
+        {
+            T obj = new T();
+            try
+            {
+                string columnname = "";
+                string value = "";
+                PropertyInfo[] Properties;
+                Properties = typeof(T).GetProperties();
+                foreach (PropertyInfo objProperty in Properties)
+                {
+                    columnname = columnsName.Find(name => name.ToLower() == objProperty.Name.ToLower());
+                    if (!string.IsNullOrEmpty(columnname))
+                    {
+                        value = row[columnname].ToString();
+                        if (!string.IsNullOrEmpty(value))
+                        {
+                            if (Nullable.GetUnderlyingType(objProperty.PropertyType) != null)
+                            {
+                                value = row[columnname].ToString().Replace("$", "").Replace(",", "");
+                                objProperty.SetValue(obj, Convert.ChangeType(value, Type.GetType(Nullable.GetUnderlyingType(objProperty.PropertyType).ToString())), null);
+                            }
+                            else
+                            {
+                                value = row[columnname].ToString().Replace("%", "");
+                                objProperty.SetValue(obj, Convert.ChangeType(value, Type.GetType(objProperty.PropertyType.ToString())), null);
+                            }
+                        }
+                    }
+                }
+                return obj;
+            }
+            catch
+            {
+                return obj;
+            }
+        }
+        public DataTable SelectByTrangThaiAndUserCreate(int trangThai, int userCreate,int cate)
+        {
+            return objcmsArticleDAL.SelectByTrangThaiAndUserCreate(trangThai, userCreate,cate);
+        }
+        public DataTable SelectByTrangThaiAndUserCreateBTV(int trangThai, int userCreate, int cate, int btvID)
+        {
+            return objcmsArticleDAL.SelectByTrangThaiAndUserCreateBTV(trangThai, userCreate, cate, btvID);
+        }
+        public void ChuyenTrangThai_ThuKy(int type, string articleIDList, int trangThai, int thuKyID, int thuKyEdit, DateTime thoiGianXuatBan,bool isPublish)
+        {
+            objcmsArticleDAL.ChuyenTrangThai_ThuKy(type, articleIDList, trangThai, thuKyID, thuKyEdit, thoiGianXuatBan,isPublish);
+        }
+        public void ChuyenTrangThai_BienTapVien(string articleIDList, int trangThai, int bienTapVienID, DateTime thoiGianGuiXuatBan)
+        {
+            objcmsArticleDAL.ChuyenTrangThai_BienTapVien(articleIDList, trangThai, bienTapVienID, thoiGianGuiXuatBan);
+        }
+        
+        public void ChuyenTrangThai_PhongVien(string articleIDList, int trangThai, DateTime thoiGianGuiBienTap)
+        {
+            objcmsArticleDAL.ChuyenTrangThai_PhongVien(articleIDList, trangThai, thoiGianGuiBienTap);
+        }
+
+        public void MultiDelete(string articleIDList)
+        {
+            objcmsArticleDAL.MultiDelete(articleIDList);
+        }
+        public void DangKyChiuTrachNhiemBaiViet(int type, string articleIDList, int userID)
+        {
+            objcmsArticleDAL.DangKyChiuTrachNhiemBaiViet(type, articleIDList, userID);
+        }
+
+
+        public int SelectSumCat(int categoryID)
+        {
+            return objcmsArticleDAL.SelectSumCat(categoryID);
+        }
+
+        public DataTable SelectPaging(int categoryID, int PageID, int PageSize)
+        {
+            return objcmsArticleDAL.SelectPaging(categoryID,PageID,PageSize);
+        }
+        public DataTable SelectPagingTagOrSearch(string tagOrSearchKey, int PageID, int PageSize)
+        {
+            return objcmsArticleDAL.SelectPagingTagOrSearch(tagOrSearchKey, PageID, PageSize);
+        }
+        public void AutoPublish()
+        {
+            objcmsArticleDAL.AutoPublish();
+        }
+        public int SelectSumTag(string tag)
+        {
+            return objcmsArticleDAL.SelectSumTag(tag);
+        }
+
+        public DataTable selectURLArt(int p)
+        {
+            return objcmsArticleDAL.selectURLArt(p);
+        }
+        public DataTable SelectByCategoryIDMobile(int categoryID, int top)
+        {
+            return objcmsArticleDAL.SelectByCategoryIDMobile(categoryID, top);
+                
         }
     }
 

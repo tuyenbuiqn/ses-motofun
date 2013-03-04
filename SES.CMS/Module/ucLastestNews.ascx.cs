@@ -13,17 +13,24 @@ namespace SES.CMS.Module
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            rptLastestNewsDataSource();
+            if(!IsPostBack)
+                 rptLastestNewsDataSource();
         }
         protected void rptLastestNewsDataSource()
         {
-            rptLastestNews.DataSource = new cmsArticleBL().LastestNews();
+          //  rptLastestNews.DataSource = new cmsArticleBL().LastestNews();
+            rptLastestNews.DataSource = new cmsTopNewsBL().SelectAll(9);
             rptLastestNews.DataBind();
         }
 
         public string FriendlyUrl(string s)
         {
             return Ultility.Change_AVCate(s);
+        }
+        public string WordCut(string text)
+        {
+            return Ultility.WordCut(text, 250, new char[] { ' ', '.', ',', ';' }) + "...";
+
         }
     }
 }

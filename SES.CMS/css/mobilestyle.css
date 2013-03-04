@@ -42,6 +42,7 @@ img
 {
 	width: 100%;
 	float: left;
+	background: #ECD9B7;
 }
 .header
 {
@@ -165,6 +166,7 @@ span.tophighlight-imgbox
 .tophighlight-des
 {
 	font-size: 12px;
+	color: #912809;
 }
 .m-otherhighlight-box
 {
@@ -823,3 +825,20 @@ color: white;
 {
     padding-left: 5px;
     }
+    .hmp-cate-maintitle {
+text-transform: uppercase;
+color: white;
+background: url(../images/panel-title-bg.png) repeat top left;
+position: relative;
+font-size: 16px;
+line-height: 19px;
+margin-bottom: 10px;
+}
+.hmp-cate-maintitle span {
+background: #912809;
+display: inline-block;
+padding: 5px 10px 3px 10px;
+font-weight: bold;
+font-family: Times New Roman;
+}
+.hmp-cate-maintitle span a {color: white;}

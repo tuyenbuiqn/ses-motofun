@@ -18,31 +18,23 @@ namespace SES.CMS.DO
 		
 		
 		#region Public Constants (Fields name)
-					public const string ARTICLECATEGORYID_FIELD ="ArticleCategoryID";
+		
 		public const string ARTICLEID_FIELD ="ArticleID";
 		public const string CATEGORYID_FIELD ="CategoryID";
+        public const string ORDERID_FIELD = "OrderID";
 
 		#endregion
 		
 		#region Private Variables
-					private Int32 _ArticleCategoryID;
+					
 		private Int32 _ArticleID;
 		private Int32 _CategoryID;
+        private Int32 _OrderID;
 
 		#endregion
 
 		#region Public Properties
-					public Int32 ArticleCategoryID
-		{
-			get
-			{
-				return _ArticleCategoryID;
-			}
-			set
-			{
-				_ArticleCategoryID = value;
-			}
-		}
+					
 		public Int32 ArticleID
 		{
 			get
@@ -67,6 +59,16 @@ namespace SES.CMS.DO
 		}
 
         #endregion
-        public int OrderID { get; set; }
+        public Int32 OrderID
+        {
+            get
+            {
+                return _OrderID;
+            }
+            set
+            {
+                _OrderID = value;
+            }
+        }
 	}
 }

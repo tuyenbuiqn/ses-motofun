@@ -22,6 +22,15 @@ namespace SES.CMS {
         protected global::System.Web.UI.WebControls.Literal ltrNgay;
         
         /// <summary>
+        /// uc2Lastestnews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::SES.CMS.Module.ucLastestNews uc2Lastestnews;
+        
+        /// <summary>
         /// uc6Main control.
         /// </summary>
         /// <remarks>

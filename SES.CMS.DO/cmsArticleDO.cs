@@ -52,6 +52,12 @@ namespace SES.CMS.DO
 		public const string LUOTVIEW_FIELD ="LuotView";
 		public const string TINLIENQUAN1_FIELD ="TinLienQuan1";
 		public const string TINLIENQUAN2_FIELD ="TinLienQuan2";
+        public const string ISWAITINGPUBLISH_FIELD = "IsWaitingPublish";
+        public const string AUTHOR_FIELD = "Author";
+        public const string DESCHOME_FIELD = "DescHome";
+        public const string FORUMUSERID_FIELD = "ForumUserID";
+        public const string NOTE = "Note";
+        public const string ARTICLESP = "ArticleSP";
 
 		#endregion
 		
@@ -90,6 +96,11 @@ namespace SES.CMS.DO
 		private Int32 _LuotView;
 		private String _TinLienQuan1;
 		private String _TinLienQuan2;
+        public Boolean IsWaitingPublish { get; set; }
+        public string Author { get; set; }
+        public string DescHome { get; set; }
+        public Int32 ForumUserID { get; set; }
+       
 
 		#endregion
 
@@ -470,6 +481,8 @@ namespace SES.CMS.DO
 		}
 
         #endregion
+        public string Note { get; set; }
+        public string ArticleSP { get; set; }
 
 	}
 }
