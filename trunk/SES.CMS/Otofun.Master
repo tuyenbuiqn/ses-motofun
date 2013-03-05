@@ -71,7 +71,7 @@
         <div id="wrapper">
             <div class="main-container">
                 <div class="header">
-                    <a href="/Default.aspx" title="otofun.vn">
+                    <a href="/Default.ofn" title="news.otofun.net">
                         <img alt="otofun.vn" class="header-img" src="/Media/banner-otofun.jpg" />
                     </a>
                 </div>

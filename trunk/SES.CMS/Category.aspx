@@ -19,7 +19,7 @@
             </h3>
             <asp:Repeater runat="server" ID="rptCategory">
                 <ItemTemplate>
-                    <div style="float: left; width: 100%; border-bottom: 1px dotted #f2f2f2;">
+                    <div style="float: left; width: 99%; border-bottom: 1px dotted #f2f2f2;">
                         <a href='/<%#FriendlyUrl(Eval("CategoryTitle").ToString())%>-<%#Eval("CategoryID") %>/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("ArticleID") %>.ofn'>
                             <div class="top-hight-light-contentbox">
                                 <span class="tophighlight-imgbox">
@@ -35,6 +35,13 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+              <div style="width: 100%; margin: 0 0 5px 0; float: right;">
+                    <div class="collection">
+                        <asp:HyperLink ID="hplPrevPage" runat="server">[Trang trước]</asp:HyperLink>
+                        &nbsp;
+                        <asp:HyperLink ID="hplNextPage" runat="server">[Trang sau]</asp:HyperLink>
+                    </div>
+                </div>
         </div>
     </div>
 </asp:Content>

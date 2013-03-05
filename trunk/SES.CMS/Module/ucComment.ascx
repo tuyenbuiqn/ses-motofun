@@ -27,7 +27,7 @@
                             <div class="comment-info2">
                                 <div class="comment-name1">
                                     <span>
-                                        <%#Eval("Name") %></span> &nbsp;&nbsp;-&nbsp;&nbsp; Gửi lúc
+                                        <%#Eval("Name") %></span> &nbsp;&nbsp;-&nbsp;
                                     <%#DateTime.Parse(Eval("CreateDate").ToString()).ToString("HH:mm dd/MM/yyyy ")%>
                                 </div>
                                 <div class="comment-vote1a">
@@ -48,7 +48,7 @@
                                 </span>
                             </div>
                             <div class="comment-reply-box">
-                                <span class="comment-r"><span class="comment-r-b">Bình luận này có <span class="bold-red">
+                                <span class="comment-r"><span class="comment-r-b">Bình luận có <span class="bold-red">
                                     <%#Eval("totalComment") %></span> phản hồi </span>
                                     <asp:Button runat="server" ID="btnReply" CssClass="comment-reply" Text="Trả lời"
                                         CausesValidation="false" CommandName="Reply" CommandArgument='<%#Eval("CommentID")%>' />
@@ -62,7 +62,7 @@
                                     <div class="comment-info2">
                                         <div class="comment-name1">
                                             <span>
-                                                <%#Eval("Name") %></span> &nbsp;&nbsp;-&nbsp;&nbsp; Gửi lúc
+                                                <%#Eval("Name") %></span> &nbsp;&nbsp;-&nbsp;
                                             <%#DateTime.Parse(Eval("CreateDate").ToString()).ToString("HH:mm dd/MM/yyyy ")%>
                                         </div>
                                         <div class="comment-vote1a">

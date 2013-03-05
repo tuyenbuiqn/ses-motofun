@@ -415,6 +415,8 @@
     <Content Include="images\search-button.jpg" />
     <Content Include="images\tag.png" />
     <Content Include="images\thongtindoanhnghiep.jpg" />
+    <Content Include="images\thumb_down.png" />
+    <Content Include="images\thumb_up.png" />
     <Content Include="images\TimKiem-button.jpg" />
     <Content Include="images\twitter.png" />
     <Content Include="js\jquery-1.4.4.min.js" />
