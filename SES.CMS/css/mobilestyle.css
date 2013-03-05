@@ -31,8 +31,28 @@ a
 img
 {
 	width: 100%;
-	height: auto;
 }
+table.tbimage {
+border-collapse: collapse;
+width: 100%;
+border-spacing: 0;
+color: #000;
+}
+table.tbimage img
+{
+    width:100% !important;
+    }
+.art-auth
+{
+    width:100%;
+    font-weight:bold;
+    }
+    .art-auth img
+    {
+        width:4px !important;
+        height:6px !important;
+        }
+
 #wrapper
 {
 	width: 100%;
