@@ -25,7 +25,7 @@ namespace SES.CMS
         protected void loadTime()
         {
             DateTime dateTime = DateTime.Now;
-           // ltrDatetime.Text = Ultility.vietNameseDay(dateTime.DayOfWeek) + ", ngày " + dateTime.Date.Day + " tháng " + dateTime.Month + " năm " + dateTime.Year;
+            // ltrDatetime.Text = Ultility.vietNameseDay(dateTime.DayOfWeek) + ", ngày " + dateTime.Date.Day + " tháng " + dateTime.Month + " năm " + dateTime.Year;
         }
         //protected void loadBreadcrumb(int categoryID)
         //{
@@ -49,42 +49,23 @@ namespace SES.CMS
         private Cache cache = HttpContext.Current.Cache;
         protected void rptCategoryDataSoucre(int categoryID)
         {
-            CollectionPager1.MaxPages = 10000;
-
-            CollectionPager1.PageSize = 30;
-
             //DataTable dtCategory = new cmsArticleBL().SelectByCategoryID2(categoryID);
             string keycat = "CatID=" + categoryID.ToString();
             if (cache[keycat] == null)
             {
-                DataTable dtCategory = new cmsArticleBL().SelectByCategoryID2(categoryID);
-                DataView dtCache = new DataView(dtCategory, "", "", DataViewRowState.CurrentRows);
-                cache.Insert(keycat, dtCache, null, DateTime.Now.AddSeconds(150), TimeSpan.Zero);
+                DataTable dtCategory = new cmsArticleBL().SelectByCategoryIDMobile(categoryID,0);
+                cache.Insert(keycat, dtCategory, null, DateTime.Now.AddSeconds(150), TimeSpan.Zero);
             }
-            CollectionPager1.DataSource = (DataView)cache[keycat];
-            //CollectionPager1.DataSource = new DataView(dtCategory, "", "", DataViewRowState.CurrentRows);
-
-            CollectionPager1.BindToControl = rptCategory;
-
-            rptCategory.DataSource = CollectionPager1.DataSourcePaged;
-
+            DataTable dtCacheCategory = (DataTable)cache[keycat];
+            rptCategory.DataSource = dtCacheCategory;
             rptCategory.DataBind();
+
         }
 
-        protected void rptCategory_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        public string CheckAuth(string s)
         {
-            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
-                Panel divCategory = (Panel)e.Item.FindControl("divCategory");
-                if (e.Item.ItemIndex == 0)
-                {
-                    divCategory.Attributes.Add("class", "category-wrap");
-                }
-                else
-                {
-                    divCategory.Attributes.Add("class", "category-wrap-first");
-                }
-            }
+            if (string.IsNullOrEmpty(s)) return "Otofun";
+            else return s;
         }
         public string FriendlyUrl(string s)
         {
