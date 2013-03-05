@@ -19,3 +19,10 @@ D:\Works\Ses-vn\Website\Projects\SES-motofun\CMS.DAL\bin\Debug\SES.CMS.DO.pdb
 D:\Works\Ses-vn\Website\Projects\SES-motofun\CMS.DAL\obj\Debug\ResolveAssemblyReference.cache
 D:\Works\Ses-vn\Website\Projects\SES-motofun\CMS.DAL\obj\Debug\CMS.DAL.dll
 D:\Works\Ses-vn\Website\Projects\SES-motofun\CMS.DAL\obj\Debug\CMS.DAL.pdb
+D:\project\ses-motofun\CMS.DAL\bin\Debug\CMS.DAL.dll
+D:\project\ses-motofun\CMS.DAL\bin\Debug\CMS.DAL.pdb
+D:\project\ses-motofun\CMS.DAL\bin\Debug\SES.CMS.DO.dll
+D:\project\ses-motofun\CMS.DAL\bin\Debug\SES.CMS.DO.pdb
+D:\project\ses-motofun\CMS.DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\project\ses-motofun\CMS.DAL\obj\Debug\CMS.DAL.dll
+D:\project\ses-motofun\CMS.DAL\obj\Debug\CMS.DAL.pdb
