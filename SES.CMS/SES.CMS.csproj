@@ -340,15 +340,11 @@
     <Content Include="ckeditor\skins\v2\templates.css" />
     <Content Include="ckeditor\themes\default\theme.js" />
     <Content Include="Contact.aspx" />
-    <Content Include="css\jquery.mobile-1.0rc2.css" />
-    <Content Include="css\jquery.mobile-1.0rc2.min.css" />
-    <Content Include="css\main.css" />
     <Content Include="css\mobilestyle.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style2.css" />
     <Content Include="css\stylesMobile.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Event.aspx" />
     <Content Include="fancybox\blank.gif" />
     <Content Include="fancybox\fancybox-x.png" />
     <Content Include="fancybox\fancybox-y.png" />
@@ -421,16 +417,11 @@
     <Content Include="images\thongtindoanhnghiep.jpg" />
     <Content Include="images\TimKiem-button.jpg" />
     <Content Include="images\twitter.png" />
-    <Content Include="js\app.js" />
     <Content Include="js\jquery-1.4.4.min.js" />
     <Content Include="js\jquery-ui-1.8.2.custom.min.js" />
-    <Content Include="js\jquery.mobile-1.0rc2.min.js" />
     <Content Include="js\jquery.mobile-menu.js" />
     <Content Include="js\jquery.reveal.js" />
     <Content Include="js\jquery.wt-rotator.min.js" />
-    <Content Include="js\jquery1.4.2.js" />
-    <Content Include="js\login.js" />
-    <Content Include="js\popup.js" />
     <Content Include="js\preview.js" />
     <Content Include="js\tabs.js" />
     <Content Include="Media\Anh-Tin.jpg" />
@@ -479,7 +470,6 @@
     <Content Include="obj\Debug\SES.CMS.pdb" />
     <Content Include="preview.css" />
     <Content Include="tag.aspx" />
-    <Content Include="Video.aspx" />
     <Content Include="Web_old.config">
       <SubType>Designer</SubType>
     </Content>
@@ -528,13 +518,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Event.aspx.cs">
-      <DependentUpon>Event.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Event.aspx.designer.cs">
-      <DependentUpon>Event.aspx</DependentUpon>
     </Compile>
     <Compile Include="Module\ucAllCategory.ascx.cs">
       <DependentUpon>ucAllCategory.ascx</DependentUpon>
@@ -760,13 +743,6 @@
     </Compile>
     <Compile Include="tag.aspx.designer.cs">
       <DependentUpon>tag.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Video.aspx.cs">
-      <DependentUpon>Video.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Video.aspx.designer.cs">
-      <DependentUpon>Video.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
