@@ -32,6 +32,11 @@ namespace SES.CMS.Module
             rptCategoryParent.DataBind();
 
         }
+        public string CheckAuth(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return "Otofun";
+            else return s;
+        }
         public string FriendlyUrl(string s)
         {
             return Ultility.Change_AVCate(s);
