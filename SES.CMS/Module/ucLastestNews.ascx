@@ -6,7 +6,7 @@
 <div class="m-highlight-box">
     <asp:Repeater runat="server" ID="rptLastestNews">
         <ItemTemplate>
-            <div style="float: left; width: 100%; border-bottom: 1px dotted #f2f2f2;">
+            <div style="float: left; width: 99%; border-bottom: 1px dotted #f2f2f2;">
                 <a href='/<%#FriendlyUrl(Eval("CategoryTitle").ToString())%>-<%#Eval("CategoryID") %>/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("ArticleID") %>.ofn'>
                     <div class="top-hight-light-contentbox">
                         <span class="tophighlight-imgbox">

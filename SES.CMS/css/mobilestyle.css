@@ -1,4 +1,4 @@
-﻿body, h1, p, h2,h3
+﻿body, h1, p, h2, h3
 {
     border: 0;
     margin: 0;
@@ -216,7 +216,7 @@ table.tbimage img
 }
 .m-highlight-box
 {
-    width: 100%;
+    width: 99%;
     float: left;
 }
 .top-hight-light
@@ -487,6 +487,11 @@ span.arrow
     text-align: justify;
     margin: 5px;
 }
+.article-detail img
+{
+    width: 95% !important;
+    height: auto !important;
+}
 .article-title
 {
     font: 700 16px /23px "Arial";
@@ -551,7 +556,7 @@ span.arrow
     background: #942201;
     border-left: none;
     border-right: none;
-    margin:2px auto;
+    margin: 2px auto;
     float: left;
 }
 
@@ -631,7 +636,6 @@ span.arrow
 }
 .comment-content
 {
-   
 }
 .comment-button
 {
@@ -796,29 +800,40 @@ span.arrow
     font-family: Arial;
     font-size: 12px;
 }
-
+.comment-box1 h3
+{
+    width: 125px;
+    font-family: Times New Roman;
+    float: left;
+    background-color: #912809;
+    color: #fff;
+    padding: 5px 0 3px 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
 .comment-info1
 {
-    width: 100%;
-    min-height: 100px;
-    margin-left: 5px;
+    width: 99%;
+    margin-left: 0px;
+    padding-left: 5px;
+    height: auto;
+    border-left: 2px solid rgb(219, 188, 160);
+    float: left;
+    margin-bottom: 10px;
 }
-
 .comment-content1
 {
     margin-top: 8px;
     width: 97%;
     min-height: 18px;
-    float: none;
+    float: left;
     line-height: 17px;
     text-align: justify;
     font-size: 12px;
-    margin-left: 5px;
 }
-
 .comment-info2
 {
-    width: 100%;
+    width: 99%;
     height: 30px;
     line-height: 30px;
     float: none;
@@ -826,15 +841,42 @@ span.arrow
 .comment-name1
 {
     width: 60%;
-    height: 30%;
+    color: rgb(105, 103, 103);
     float: left;
+    font-size: 10px;
 }
-
+.comment-name1 span
+{
+    font-size: 15px;
+    color: Black;
+    font-weight: bold;
+    font-family: Arial;
+}
+.comment-info-reply
+{
+    width: 94%;
+    margin-left: 5%;
+    padding-left: 5px;
+    height: auto;
+    border-left: 2px solid rgb(219, 188, 160);
+    float: left;
+    margin-bottom: 10px;
+}
 .comment-vote1
 {
     width: 40%;
     height: 35%;
     float: right;
+}
+.dislike-icon
+{
+    background-position: 0 -52px;
+    height: 16px;
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    margin-top: 7px;
+    border: none;
 }
 .namecm
 {
@@ -849,6 +891,66 @@ span.arrow
     width: 100%;
     font-size: 10px;
     float: right;
+}
+.like-icon
+{
+    background-position: 0 -52px;
+    height: 16px;
+    width: 16px;
+    float: left;
+    margin-right: 2px;
+    margin-top: 3px;
+    border: none;
+}
+.comment-vote1a
+{
+    float: right;
+    width: 25%;
+}
+.social-boxa
+{
+    display: block;
+    float: right;
+    width: 35px;
+}
+.social-boxr
+{
+    display: block;
+    float: right;
+    width: 35px;
+}
+.comment-r
+{
+    float: right;
+    margin-right: 15px;
+}
+.bold-red
+{
+    color: Red;
+    font-weight: bold;
+    padding: 0 3px;
+}
+.comment-r-b
+{
+    float: left;
+    display: block;
+    width: 200px;
+}
+.comment-reply
+{
+    float: left;
+    width: 50px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: Green;
+}
+.comment-reply:hover
+{
+    color: RED;
+    text-decoration: underline;
 }
 .social-box span.like-icon
 {
@@ -910,7 +1012,7 @@ span.arrow
     position: relative;
     font-size: 16px;
     line-height: 19px;
-    margin:0;
+    margin: 0;
     margin-bottom: 10px;
 }
 .hmp-cate-maintitle span
@@ -925,22 +1027,24 @@ span.arrow
 {
     color: white;
 }
-.tag-box{
-width: 100%;
-float: left;
-background: url('../images/tag.png') no-repeat;
-background-position: 0 10px;
-height: 30px;
-margin: 10px 0;
-padding: 10px 0 5px 0;
-border-bottom: 1px solid rgb(216, 187, 171);
-border-top: 1px solid rgb(216, 187, 171);
-position: relative;
+.tag-box
+{
+    width: 100%;
+    float: left;
+    background: url('../images/tag.png') no-repeat;
+    background-position: 0 10px;
+    height: 30px;
+    margin: 10px 0;
+    padding: 10px 0 5px 0;
+    border-bottom: 1px solid rgb(216, 187, 171);
+    border-top: 1px solid rgb(216, 187, 171);
+    position: relative;
 }
-.tag-ul {
-float: left;
-width: 60%;
-margin: 0 0 0 25px;
+.tag-ul
+{
+    float: left;
+    width: 60%;
+    margin: 0 0 0 25px;
 }
 .tag-ul li
 {
@@ -968,50 +1072,57 @@ margin: 0 0 0 25px;
 {
     text-decoration: none;
 }
-.div-comment {
-float: left;
-width:100%;
+.div-comment
+{
+    float: left;
+    width: 100%;
 }
 .h3-title-cate
-{float: left;
-width:100%;
-margin:0;}
-.h3-title-cate span
-{background-color: #912809;
-color: #fff;
-padding: 5px 10px 3px 10px;
-font-size: 16px;
-text-transform: uppercase;}
-.div-comment h3 {
-float: left;
-width:100%;
-margin:0;
+{
+    float: left;
+    width: 100%;
+    margin: 0;
 }
-.div-comment h3 span {
-background-color: #912809;
-color: #fff;
-padding: 5px 10px 3px 10px;
-font-size: 16px;
-text-transform: uppercase;
+.h3-title-cate span
+{
+    background-color: #912809;
+    color: #fff;
+    padding: 5px 10px 3px 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.div-comment h3
+{
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+.div-comment h3 span
+{
+    background-color: #912809;
+    color: #fff;
+    padding: 5px 10px 3px 10px;
+    font-size: 16px;
+    text-transform: uppercase;
 }
 .comment-row
 {
     width: 100%;
     float: left;
     line-height: 20px;
-    margin-bottom:4px;
+    margin-bottom: 4px;
 }
 .comment-name
 {
-    width:  98% !important;
+    width: 98% !important;
     outline: 1px solid #ccc;
-     float: left;
+    float: left;
 }
 .comment-email
 {
-    width:  98% !important;
+    width: 98% !important;
     outline: 1px solid #ccc;
-     float: left;
+    float: left;
 }
 .comment-span
 {
@@ -1039,10 +1150,10 @@ text-transform: uppercase;
 }
 .comment-content
 {
- width: 98% !important;
-outline: 1px solid #ccc;
-margin-left: 5px;
-float: left;
+    width: 98% !important;
+    outline: 1px solid #ccc;
+    margin-left: 5px;
+    float: left;
 }
 .comment-button
 {
@@ -1055,4 +1166,31 @@ float: left;
     color: #fff;
     font-weight: BOLD;
     padding: 3px 0;
+}
+.collection
+{
+    float: right;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#aViewComment
+{
+    float: right;
+    background: none;
+    font-size: 13px;
+    text-transform: none;
+    margin: 5px 5px 0 10px;
+    font-weight: bold;
+    color: #B23803;
+}
+#aSendComment
+{
+    float: right;
+    background: none;
+    font-size: 13px;
+    text-transform: none;
+    margin: 5px 0 0 0;
+    font-weight: bold;
+    color: #B23803;
 }
