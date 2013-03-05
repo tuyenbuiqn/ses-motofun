@@ -12,6 +12,7 @@
             <p>
                 <asp:Literal runat="server" ID="ltrNgay"></asp:Literal></p>
         </div>
+
         <uc2:ucLastestNews runat="server" ID="uc2Lastestnews" />
         <uc6:ucMainHomePageCategory runat="server" ID="uc6Main" />
     </div>

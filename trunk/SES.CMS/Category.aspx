@@ -15,7 +15,7 @@
             <div class="category-title-box">
                 <h2 class="category-title">
                     <asp:Label runat="server" ID="lblCate"></asp:Label>
-                    </h2>
+                </h2>
             </div>
             <asp:Repeater runat="server" ID="rptCategory" OnItemDataBound="rptCategory_ItemDataBound">
                 <ItemTemplate>

@@ -4,29 +4,40 @@
 <%@ Register Src="/Module/ucCateMenu.ascx" TagName="ucCateMenu" TagPrefix="uc2" %>
 <%@ Register Src="/Module/ucAllCategory.ascx" TagName="ucAllCate" TagPrefix="uc3" %>
 <%@ Register Src="/Module/ucFooter.ascx" TagName="ucFooter" TagPrefix="uc4" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="/css/mobilestyle.css" rel="stylesheet" type="text/css" />
     <title></title>
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <meta name="MobileOptimized" content="100" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="stylesheet" href="/css/jquery.mobile-1.0rc2.css" />
-    <link rel="stylesheet" href="/css/main.css?v=31" />
-    <script type="text/javascript" src="/js/jquery.mobile-1.0rc2.min.js"></script>
-    <script type="text/javascript" src="/js/app.js"></script>
+    <%--  <link rel="stylesheet" href="/css/jquery.mobile-1.0rc2.css" />--%>
+ <%--   <link rel="stylesheet" href="/css/main.css?v=31" />--%>
+    <%--<script type="text/javascript" src="/js/jquery.mobile-1.0rc2.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>--%>
+    <link rel="stylesheet" href="/css/stylesMobile.css">
+    <script src="/js/jquery.mobile-menu.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("body").mobile_menu({
+                menu: ['#main-nav ul', '#secondary-nav ul'],
+                menu_width: 200,
+                prepend_button_to: '#mobile-bar'
+            });
+        });
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div id="menu">
-        <ul>
-         <li><a  href="/Default.aspx"
-                title="Trang chủ" class="contentLink">Trang chủ</a> </li>
+    <header>
+			<nav id="mobile-bar"></nav>
+			<nav id="main-nav">
+				<ul class="ul-nav">
+					 <li><a href="/Default.ofn" title="Trang chủ" class="contentLink">Trang chủ</a> </li>
             <asp:Repeater runat="server" ID="rptMainCate">
                 <ItemTemplate>
                     <li><a href='/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("CategoryID")%>.ofn'
@@ -39,14 +50,23 @@
                 title="Rao vặt" class="contentLink">Rao vặt</a> </li>
             <li><a target="_blank" href="http://www.otofun.net/forum.php" title="Diễn đàn otofun.net"
                 class="contentLink">Diễn đàn</a> </li>
-                <li><a target="_blank" href="http://www.news.otofun.net" title="Giao diện chuẩn"
+            <li><a target="_blank" href="http://www.news.otofun.net" title="Giao diện chuẩn"
                 class="contentLink">Giao diện chuẩn</a> </li>
-        </ul>
-    </div>
-    <div data-role="page" class="pages" id="home">
-        <div data-role="header">
-            <a href="#" class="showMenu"></a>
-        </div>
+				</ul>
+			</nav>
+			
+		<%--	<nav id="secondary-nav">
+				<ul>
+					<li><a href="#">Secondary Nav 1</a></li>
+					<li><a href="#">Secondary Nav 2</a></li>
+					<li><a href="#">Secondary Nav 3</a></li>
+					<li><a href="#">Secondary Nav 4</a></li>
+					<li><a href="#">Secondary Nav 5</a></li>
+					<li><a href="#">Secondary Nav 6</a></li>
+				</ul>
+			</nav>--%>
+    </header>
+    <section>
         <!-- /header -->
         <div id="wrapper">
             <div class="main-container">
@@ -55,15 +75,15 @@
                         <img alt="otofun.vn" class="header-img" src="/Media/banner-otofun.jpg" />
                     </a>
                 </div>
-               <%-- <uc1:ucMainMenu ID="ucMainMenu1" runat="server" />--%>
+                <%-- <uc1:ucMainMenu ID="ucMainMenu1" runat="server" />--%>
                 <uc2:ucCateMenu ID="ucCateMenu2" runat="server" />
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
-               <%-- <uc3:ucAllCate runat="server" ID="uc3ucAllCate" />--%>
+                <%-- <uc3:ucAllCate runat="server" ID="uc3ucAllCate" />--%>
                 <uc4:ucFooter runat="server" ID="uc4ucfooter" />
             </div>
         </div>
-    </div>
+    </section>
     </form>
 </body>
 </html>
