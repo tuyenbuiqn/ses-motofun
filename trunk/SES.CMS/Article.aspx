@@ -59,8 +59,9 @@
                 </asp:Repeater>
             </div>
             <uc7:ucTags runat="server" ID="uc7ucTag" />
+            
+            <uc4:ucNewArticles  ID="ucNewArticles1" runat="server" />
             <uc8:ucComment ID="ucComment1" runat="server" />
-            <uc4:ucNewArticles Visible="false" ID="ucNewArticles1" runat="server" />
         </div>
     </div>
 </asp:Content>

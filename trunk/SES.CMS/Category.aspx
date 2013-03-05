@@ -12,38 +12,29 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="m-body-top">
         <div class="body-out">
-            <div class="category-title-box">
-                <h2 class="category-title">
+            <h3 class="hmp-cate-maintitle">
+                <span>
                     <asp:Label runat="server" ID="lblCate"></asp:Label>
-                </h2>
-            </div>
-            <asp:Repeater runat="server" ID="rptCategory" OnItemDataBound="rptCategory_ItemDataBound">
+                </span>
+            </h3>
+            <asp:Repeater runat="server" ID="rptCategory">
                 <ItemTemplate>
-                    <asp:Panel runat="server" ID="divCategory">
-                        <a title='<%#Eval("Title") %>' href='/<%#FriendlyUrl(Eval("CategoryTitle").ToString())%>-<%#Request.QueryString["CategoryID"] %>/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("ArticleID")%>.aspx'>
-                            <img class="img-box" src='/Media/<%#Eval("ImageUrl") %>' alt='<%#Eval("Title") %>'></a>
-                        <div class="cate-desc-box">
-                            <h2>
-                                <a title='<%#Eval("Title") %>' class="cate-title" href='/<%#FriendlyUrl(Eval("CategoryTitle").ToString()) %>-<%#Request.QueryString["CategoryID"] %>/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("ArticleID")%>.aspx'>
-                                    <%#Eval("Title") %></a>
-                            </h2>
-                    </asp:Panel>
+                    <div style="float: left; width: 100%; border-bottom: 1px dotted #f2f2f2;">
+                        <a href='/<%#FriendlyUrl(Eval("CategoryTitle").ToString())%>-<%#Eval("CategoryID") %>/<%#FriendlyUrl(Eval("Title").ToString())%>-<%#Eval("ArticleID") %>.ofn'>
+                            <div class="top-hight-light-contentbox">
+                                <span class="tophighlight-imgbox">
+                                    <img class="tophighlight-img" alt='<%#Eval("Title") %>' src='http://news.otofun.net/Media/<%#Eval("ImageUrl") %>' />
+                                </span><span class="top-hight-light">
+                                    <%#Eval("Title") %></span> <span class="tophighlight-des">
+                                        <div class="art-auth">
+                                            <img src="/images/news-icon-d.png" style="margin-right: 3px;">
+                                            <%#CheckAuth(Eval("Author").ToString())%></div>
+                                        <%#WordCut(Eval("Description").ToString())%></span>
+                            </div>
+                        </a>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-            <div style="width: 100%; margin: 20px 0; float: right;">
-                <div class="collection">
-                    <cp:CollectionPager LabelText="Page:&amp;nbsp;&amp;nbsp;" FirstText="&amp;nbsp;&amp;nbsp;<<"
-                        BackText="< &amp;nbsp;" LastText=">>" NextText=">" ShowFirstLast="True" ControlCssClass="collectionpager"
-                        PagingMode="PostBack" runat="server" BackNextLinkSeparator="" BackNextLocation="Right"
-                        PageNumbersDisplay="Numbers" ResultsLocation="None" BackNextDisplay="HyperLinks"
-                        ID="CollectionPager1" BackNextButtonStyle="" BackNextStyle="margin-left:5px;"
-                        ControlStyle="" PageNumbersSeparator="&amp;nbsp;" ShowLabel="True">
-                    </cp:CollectionPager>
-                    <div class="collectPage">
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </asp:Content>

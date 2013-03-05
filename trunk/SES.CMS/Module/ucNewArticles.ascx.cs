@@ -17,18 +17,17 @@ namespace SES.CMS.Module
             if (!String.IsNullOrEmpty(Request.QueryString["ArticleID"]))
             {
                 int articleID = int.Parse(Request.QueryString["ArticleID"]);
-                rptNewArticleDataSource(articleID);
+                if (!IsPostBack)
+                    rptNewArticleDataSource(articleID);
             }
         }
         protected void rptNewArticleDataSource(int articleID)
         {
-            cmsArticleDO objArt = new cmsArticleDO();
-            objArt.ArticleID = articleID;
-            objArt = new cmsArticleBL().Select(objArt);
-            if (objArt.CategoryID > 0)
+            if (!string.IsNullOrEmpty(Request.QueryString["CategoryID"]))
             {
-                DataTable dtNewArt = new cmsArticleBL().SelectByCategoryID(objArt.CategoryID);
-                rptNewArticle.DataSource = new DataView(dtNewArt, "IsNew = 1 AND ArticleID <> " + articleID, "", DataViewRowState.CurrentRows);
+                int categoryID = int.Parse(Request.QueryString["CategoryID"]);
+                DataTable dtNewArt = new cmsArticleBL().SelectByCategoryIDMobile(categoryID, 6);
+                rptNewArticle.DataSource = new DataView(dtNewArt, "ArticleID <> " + articleID, "", DataViewRowState.CurrentRows);
                 rptNewArticle.DataBind();
             }
         }
