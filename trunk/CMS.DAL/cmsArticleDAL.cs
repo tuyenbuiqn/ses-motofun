@@ -1669,8 +1669,8 @@ namespace SES.CMS.DAL
         {
             SqlCommand Sqlcomm = new SqlCommand();
             Sqlcomm.CommandType = CommandType.StoredProcedure;
-          //  Sqlcomm.CommandText = "spr_procedure_article_paged";
-            Sqlcomm.CommandText = "spr_procedure_article_paged_x";
+            Sqlcomm.CommandText = "spr_procedure_article_paged_mobile";
+         //   Sqlcomm.CommandText = "spr_procedure_article_paged_x";
             SqlParameter Sqlparam;
 
 
