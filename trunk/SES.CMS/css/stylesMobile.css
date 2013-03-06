@@ -8,7 +8,6 @@
 #build-menu
 {
     visibility: visible;
-    z-index: 0;
     opacity: 1;
     -webkit-transform: none;
     -moz-transform: none;
@@ -19,7 +18,7 @@
     width: 200px;
     padding: 0;
     position: static;
-    z-index: 0;
+    z-index: 9999;
     top: 0;
     height: 100%;
     overflow-y: auto;
@@ -85,6 +84,7 @@ ul.ul-nav
     margin: 0;
     padding: 0;
     width: inherit;
+    z-index:9999;
 }
 ul.ul-nav li
 {
