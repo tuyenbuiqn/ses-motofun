@@ -13,13 +13,13 @@ namespace SES.CMS {
     public partial class tag {
         
         /// <summary>
-        /// lblCate control.
+        /// ltrKey control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCate;
+        protected global::System.Web.UI.WebControls.Literal ltrKey;
         
         /// <summary>
         /// rptTag control.
@@ -31,12 +31,21 @@ namespace SES.CMS {
         protected global::System.Web.UI.WebControls.Repeater rptTag;
         
         /// <summary>
-        /// CollectionPager1 control.
+        /// hplPrevPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SiteUtils.CollectionPager CollectionPager1;
+        protected global::System.Web.UI.WebControls.HyperLink hplPrevPage;
+        
+        /// <summary>
+        /// hplNextPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hplNextPage;
     }
 }
