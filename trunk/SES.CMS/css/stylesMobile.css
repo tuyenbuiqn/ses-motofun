@@ -115,6 +115,11 @@ ul.ul-nav li a:hover, ul.ul-nav li a:active
     color: #000 !important;
     text-shadow: 0 1px 1px #fff;
     height: 42px !important;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:100%;
+	z-index:9999;
 }
 #build-menu-button
 {

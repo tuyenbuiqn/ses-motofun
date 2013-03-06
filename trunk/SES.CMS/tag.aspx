@@ -12,11 +12,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="m-body-top">
         <div class="body-out">
-            <div class="category-title-box">
                 <h3 class="hmp-cate-maintitle">
                         <span><a class="rootcat">Từ khóa</a> » <asp:Literal ID="ltrKey" runat="server"></asp:Literal></span>
                 </h3>
-            </div>
             <asp:Repeater runat="server" ID="rptTag" OnItemDataBound="rptTag_ItemDataBound">
                 <ItemTemplate>
                     <div style="float: left; width: 99%; border-bottom: 1px dotted #f2f2f2;">

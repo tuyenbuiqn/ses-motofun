@@ -34,7 +34,15 @@
 <body>
     <form id="form1" runat="server">
     <header>
-			<nav id="mobile-bar"></nav>
+			<nav id="mobile-bar">
+			<a href="/Default.ofn" title="news.otofun.net">
+                        <img alt="Home" style="margin-left:10px; width:150px; margin-top:5px;" src="/images/logo-mobile.png" />
+                    </a>
+					
+					<a href="http://otofun.net/forum.php" title="Forum">
+                        <img alt="Home" style="float:right;margin-left:10px; width:40px;" src="/images/forum-icon.png" />
+                    </a>
+			</nav>
 			<nav id="main-nav">
 				<ul class="ul-nav">
 					 <li><a href="/Default.ofn" title="Trang chủ" class="contentLink">Trang chủ</a> </li>
@@ -50,7 +58,7 @@
                 title="Rao vặt" class="contentLink">Rao vặt</a> </li>
             <li><a target="_blank" href="http://www.otofun.net/forum.php" title="Diễn đàn otofun.net"
                 class="contentLink">Diễn đàn</a> </li>
-            <li><a target="_blank" href="http://www.news.otofun.net" title="Giao diện chuẩn"
+            <li><a target="_blank" href="http://news.otofun.net/?UI=Desktop" title="Giao diện chuẩn"
                 class="contentLink">Giao diện chuẩn</a> </li>
 				</ul>
 			</nav>
@@ -72,8 +80,10 @@
             <div class="main-container">
                 <div class="header">
                     <a href="/Default.ofn" title="news.otofun.net">
-                        <img alt="otofun.vn" class="header-img" src="/Media/banner-otofun.jpg" />
+                        <img alt="Menu" class="header-img" src="/Media/banner-otofun.jpg" />
                     </a>
+					
+					
                 </div>
                 <%-- <uc1:ucMainMenu ID="ucMainMenu1" runat="server" />--%>
                 <uc2:ucCateMenu ID="ucCateMenu2" runat="server" />
