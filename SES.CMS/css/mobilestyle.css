@@ -8,7 +8,7 @@
 body
 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     background: #ECD9B7;
     margin: auto;
     width: 100%;
@@ -96,7 +96,7 @@ table.tbimage img
 }
 .tag-wrap
 {
-    width:100%;
+    width:99%;
     float:left;
     position:relative;
     }
@@ -484,7 +484,7 @@ span.arrow
 /*Article*/
 .article-box
 {
-    width: 100%;
+    width:99%;
     float: left;
     position: relative;
 }
@@ -522,7 +522,7 @@ span.arrow
 }
 .newarticle-box
 {
-    width: 100%;
+    width: 98%;
     float: left;
     margin: 5px 0;
 }
@@ -793,7 +793,7 @@ span.arrow
 {
     margin-left: 3px;
     border: 1px solid #DFC698;
-    width: 99%;
+    width: 97%;
     float: left;
     margin-bottom: 5px;
     font-family: Arial;
@@ -1028,7 +1028,7 @@ span.arrow
 }
 .tag-box
 {
-  width: 100%;
+  width: 99%;
 float: left;
 background: url('../images/tag.png') no-repeat;
 background-position: 0 10px;
@@ -1074,7 +1074,7 @@ position: relative;
 .div-comment
 {
     float: left;
-    width: 100%;
+    width: 99%;
 }
 .h3-title-cate
 {
