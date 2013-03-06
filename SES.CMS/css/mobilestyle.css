@@ -94,11 +94,17 @@ table.tbimage img
     right: 2px;
     top: 45px;
 }
+.tag-wrap
+{
+    width:100%;
+    float:left;
+    position:relative;
+    }
 .social-content-tag
 {
-    position: absolute;
-    right: 0;
-    top: 1px;
+   position: absolute;
+right: 5px;
+top: 0; 
 }
 .art-authx img
 {
@@ -649,14 +655,7 @@ span.arrow
     color: #fff;
     margin-left: 5px;
 }
-.tag-box
-{
-    width: 100%;
-    float: left;
-    height: 30px;
-    padding: 5px 0;
-    margin-top: 10px;
-}
+
 .tag-background
 {
     width: 70px;
@@ -1029,21 +1028,21 @@ span.arrow
 }
 .tag-box
 {
-    width: 100%;
-    float: left;
-    background: url('../images/tag.png') no-repeat;
-    background-position: 0 10px;
-    height: 30px;
-    margin: 10px 0;
-    padding: 10px 0 5px 0;
-    border-bottom: 1px solid rgb(216, 187, 171);
-    border-top: 1px solid rgb(216, 187, 171);
-    position: relative;
+  width: 100%;
+float: left;
+background: url('../images/tag.png') no-repeat;
+background-position: 0 10px;
+height: 30px;
+margin: 35px 0 10px 0;
+padding: 10px 0 5px 0;
+border-bottom: 1px solid rgb(216, 187, 171);
+border-top: 1px solid rgb(216, 187, 171);
+position: relative;
 }
 .tag-ul
 {
     float: left;
-    width: 60%;
+    width: 95%;
     margin: 0 0 0 25px;
 }
 .tag-ul li
